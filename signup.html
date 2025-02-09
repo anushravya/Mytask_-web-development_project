@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+    </style>
+    <link rel="stylesheet" href="signup.css">
+    <title>Registration </title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Register</div>
+        <form action="signup.jsp" method="get" >
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Username<span class="tooltip">No spaces; Must be unique</span></span>
+                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email<span class="tooltip">No sapces; Email must be in format xyz@abc.com</span></span>
+                    <input type="text" name="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password<span class="tooltip">No spaces; must contain atleast one special char</span></span>
+                    <input type="password" name="pass" id="pass" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Password</span>
+                    <input type="password" name="re-pass" id="re-pass" placeholder="Re-type your password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone<span class="tooltip">No spaces; Must be 10 digits and start with 6,7,8,9</span></span>
+                    <input type="text" name="phone" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address</span>
+                    <input type="text" name="address" id="address" placeholder="Enter your address" required>
+                </div>
+                </div>
+                <div class="dob">
+                    <span class="details">Date of Birth :</span>
+                    <input type="date" name="dob" id="dob" required>
+                </div>
+                <div class="gen-cap" style="display:flex;" >
+                <div class="gender-details" style="width:50%; margin-right:20px">
+                    <input type="radio" name="gender" value="M" id="dot-1">
+                    <input type="radio" name="gender" value="F" id="dot-2">
+                    <input type="radio" name="gender" value="O" id="dot-3">
+                    <span class="gender-title">Gender :</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Others</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="captcha">
+                  
+  				  <div id="img">
+  			      	<span id="captcha"></span>
+  				  
+  			      <div id="input-box">
+          		  	<input type="text" name="text" id="text" placeholder="Enter captcha">
+    			</div>
+    			</div>
+    			<br>
+    			
+                </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register" onclick="verify()" class="registerbtn">
+                </div>
+                <div class="go-back">
+                    <a href="login.html" class="redirect">Already A Member?</a>
+                </div>
+        </form>
+    </div>
+    <script>
+    		var uniqchar = "";
+    		var usertext = document.getElementById("text").value;
+            function generate(){
+            var captcha = document.getElementById("captcha");
+    		const allchar =
+        		['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    		for (let i = 0; i < 6; i++) {
+        		uniqchar +=  allchar[Math.floor(Math.random()*allchar.length)]
+    		}
+    		console.log(uniqchar)
+    		captcha.innerText = uniqchar;
+    		}
+    		generate();
+    
+        function verify() {
+            n = document.getElementById('name').value;
+            e = document.getElementById('email').value;
+            p = document.getElementById('pass').value;
+            rp = document.getElementById('re-pass').value;
+            ph = document.getElementById('phone').value;
+            ad = document.getElementById('address').value;
+            g = document.getElementsByName("gender");
+            usertext = document.getElementById("text").value;
+         
+    
+            
+            if(n.length != 0){
+                if(n.match(/\w/g)&&!n.match(/[0-9]/g)){
+                if(e.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)){
+                    if(p.length >= 8){
+                        if( p == rp){
+                            if(ph.length==10 && (ph[0]=='9' || ph[0]=='8' || ph[0]=='7' || ph[0]=='6') && ph!= ""){
+                                if(ad.length != 0){
+                                    if(g != ''){
+                                    	if(usertext == uniqchar){
+                                    		
+                                        alert("Valid Response");
+                                        
+                                    	}
+                                    	else{
+                                    		alert("Invalid captcha");
+                                    		event.preventDefault();
+                                    	}
+                                    }
+                                    else{
+                                        alert("Pick a gender");
+                                        event.preventDefault();
+                                    }
+                                }
+                                else{
+                                    alert("Enter your address");
+                                    event.preventDefault();
+                                }
+                            }
+                            else{
+                                alert("Enter a phone number");
+                                event.preventDefault();
+                            }
+                        }
+                        else{
+                            alert("Enter the same password");
+                            event.preventDefault();
+                        }
+                    }
+                    else{
+                        alert("Enter a valid password");
+                        event.preventDefault();
+                    }
+                }
+                else{
+                    alert("Enter a valid email");
+                    event.preventDefault();
+                }
+            }
+            else{
+                alert("Enter Valid Name");
+                event.preventDefault();
+            }
+            }
+            else{
+                alert("Enter a name");
+                event.preventDefault();
+            }
+        }                      
+    </script>
+</body>
+</html>
