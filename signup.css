@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background:linear-gradient(37deg,rgb(0, 191, 255),rgb(30, 94, 255),rgb(0, 191, 255));
+}
+
+.container{
+    max-width: 1040px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    max-height: 650px;
+    height: 100%;
+    padding: 25px 25px;
+}
+/* .container{
+    scale: 1.3;
+    display: flex;
+    width: 800px;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgb(53, 53, 53);
+    overflow: hidden; 
+}*/
+.container .title{
+    color: #3e86e4;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 550;
+    position: relative;
+}
+/* .container .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg,#5974e0,#867dda);
+} */
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+.user-details .input-box .details{
+    display: block;
+    font-weight: 550;
+    margin-bottom: 5px;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #3e86e4;
+}
+.dob .details{
+    font-size: 17px;
+    font-weight: 550;
+    margin-right: 5px;
+}
+form .dob{
+    height: 20px;
+    margin: 20px 0;
+}
+form input[type=date]{
+    cursor: pointer;
+}
+form .gender-details .gender-title{
+    font-size: 17px;
+    font-weight: 550;
+    margin-top: 20px;
+}
+form .gender-details .category{
+    display: flex;
+    width:40%;
+    margin: 15px 0;
+    justify-content: space-between;
+}
+.gender-details .category label{
+    display: flex;
+    align-items: center;
+}
+.gender-details .category .dot{
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    margin-right: 7.5px;
+    transition: all 0.3s ease ;
+    cursor: pointer;
+}
+#dot-1:checked ~ .category .one,
+#dot-2:checked ~ .category .two,
+#dot-3:checked ~ .category .three{
+  border-color: #d9d9d9;
+  background: #3e8ee4;  
+}
+form input[type="radio"]{
+    display: none;
+}
+form .file{
+    height: 20px;
+    margin: 20px 0;
+}
+.file .details{
+    font-size: 17px;
+    font-weight: 550;
+    margin-right: 10px;
+}
+form .file input{
+    height: 100%;
+    margin-right: 0;
+    outline: none;
+    font-size: 12px;
+    font-weight: 550;
+    cursor: pointer;
+}
+form .captcha input[type=text]{
+    padding: 12px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+form button{
+    border: none;
+    color: black;
+    padding: 12px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px 10px;
+    cursor: pointer;
+}
+form .button{
+    height: 45px;
+    /* margin: 45px 0; */
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 550;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* background: linear-gradient(135deg,#5974e0,#da7d99); */
+    background-color: rgb(0, 132, 255);
+}
+.go-back{
+    display: flex;
+    justify-content: center;
+}
+ .redirect{
+    text-decoration: none;
+    color: black;
+    font-weight: 550;
+    justify-content: center;
+    align-items: center;
+}
